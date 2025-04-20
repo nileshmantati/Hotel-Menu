@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Menu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bungee+Spice&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Londrina+Solid:wght@100;300;400;900&family=Lora:ital,wght@0,400..700;1,400..700&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Playwrite+AU+SA:wght@100..400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center d-flex flex-column row-gap-4">
+        <h3 class="heading">Hotel Menu Card</h3>
+        <div class="main col-12 d-flex gap-2 justify-content-between flex-wrap">
+            <div class="game_box col-12 col-xl-9 d-flex overflow-hidden justify-content-between flex-wrap row-gap-2">
+                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                    <div class="card_box col d-flex flex-column">
+                        <div class="img_box overflow-hidden p-3">
+                            <img src="img/ts-product_1.jpg" alt="">
+                        </div>
+                        <div class="text_box d-flex flex-column p-3">
+                            <h6 class="text-capitalize">samsung galaxy</h6>
+                            <span class="mb-3">Price : 990$</span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('10')">add
+                                to
+                                cart</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                    <div class="card_box col d-flex flex-column">
+                        <div class="img_box overflow-hidden p-3">
+                            <img src="img/ts_products_galleries_3.jpg" alt="">
+                        </div>
+                        <div class="text_box d-flex flex-column p-3">
+                            <h6 class="text-capitalize">gaming controller</h6>
+                            <span class="mb-3">Price : 99$</span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('20')">add
+                                to
+                                cart</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                    <div class="card_box col d-flex flex-column">
+                        <div class="img_box overflow-hidden p-3">
+                            <img src="img/airpods_max2.jpg" alt="">
+                        </div>
+                        <div class="text_box d-flex flex-column p-3">
+                            <h6 class="text-capitalize">apple headphones</h6>
+                            <span class="mb-3">Price : 399$</span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('30')">add
+                                to
+                                cart</button>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                    <div class="card_box col d-flex flex-column">
+                        <div class="img_box overflow-hidden p-3">
+                            <img src="img/watch.jpg" alt="">
+                        </div>
+                        <div class="text_box d-flex flex-column p-3">
+                            <h6 class="text-capitalize">apple watch</h6>
+                            <span class="mb-3">Price : 125$</span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('40')">add
+                                to
+                                cart</button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="wishcart col p-3">
+                <p class="text-capitalize mb-2">Item : <span id="count"></span></p>
+                <p class="text-capitalize mb-2">Total : <span id="total"></span></p>
+                <p class="text-capitalize mb-2">GST : <span id="gst"></span></p>
+                <hr class="hr col-12">
+                <p class="text-capitalize">Gross Amount : - <span id="grossamount"></span></p>
+                <div class="discount_box col d-flex gap-3 justify-content-center mb-2">
+                    <button id="d_box" class="border-0 rounded-2 px-2 py-1" onclick="onClickBtn('5')">
+                        5%
+                    </button>
+                    <button id="d_box" class="border-0 rounded-2 px-2 py-1" onclick="onClickBtn('10')">
+                        10%
+                    </button>
+                    <button id="d_box" class="border-0 rounded-2 px-2 py-1" onclick="onClickBtn('15')">
+                        15%
+                    </button>
+                    <button id="d_box" class="border-0 rounded-2 px-2 py-1" onclick="onClickBtn('25')">
+                        25%
+                    </button>
+                </div>
+                <p class="text-capitalize mb-0">discount : <span id="discountamount"></span></p>
+                <hr class="hr col-12 mb-1">
+                <p class="text-capitalize mb-0">net amount : <span id="netamount"></span></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        let count = 1;
+        let total = 0;
+        let gst = 18;
+        let grossamount = 0;
+        let discountamount = 0;
+        let netamount = 0;
+        function onClickFunc(params) {
+            let btn = document.getElementById(params);
+            total = parseInt(total) + parseInt(params);
+            grossamount = total + (total * 0.18);
+            document.getElementById("count").innerText = count;
+            document.getElementById("total").innerText = total;
+            document.getElementById("gst").innerText = "18%";
+            document.getElementById("grossamount").innerText = grossamount;
+            count++;
+        }
+        function onClickBtn(disountbtn) {
+            discountamount = grossamount * (parseFloat(disountbtn) / 100);
+            netamount = grossamount - (grossamount * (disountbtn / 100));
+            document.getElementById("discountamount").innerText = discountamount;
+            document.getElementById("netamount").innerText = netamount;
+        }
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
