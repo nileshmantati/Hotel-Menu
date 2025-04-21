@@ -129,8 +129,8 @@
             count++;
         }
         function onClickBtn(disountbtn) {
-            discountamount = grossamount * (parseFloat(disountbtn) / 100);
-            netamount = grossamount - (grossamount * (disountbtn / 100));
+            discountamount = grossamount * (parseInt(disountbtn) * 0.01);
+            netamount = grossamount - (grossamount * (disountbtn * 0.01));
             document.getElementById("discountamount").innerText = discountamount;
             document.getElementById("netamount").innerText = netamount;
         }
