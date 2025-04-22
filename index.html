@@ -24,61 +24,61 @@
 </head>
 
 <body>
-    <div class="container d-flex justify-content-center align-items-center d-flex flex-column row-gap-4">
+    <div class="container-fluid justify-content-center align-items-center d-flex flex-column row-gap-4">
         <h3 class="heading">Hotel Menu Card</h3>
-        <div class="main col-12 d-flex gap-2 justify-content-between flex-wrap">
-            <div class="game_box col-12 col-xl-9 d-flex overflow-hidden justify-content-between flex-wrap row-gap-2">
-                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+        <div class="main col-12 d-flex gap-2 justify-content-between flex-wrap flex-md-nowrap">
+            <div class="game_box col-12 col-md-9 d-flex overflow-hidden justify-content-between flex-wrap  row-gap-2">
+                <a href="#" class="col-12 col-sm-6 col-md-3 text-decoration-none px-1">
                     <div class="card_box col d-flex flex-column">
                         <div class="img_box overflow-hidden p-3">
-                            <img src="img/ts-product_1.jpg" alt="">
+                            <img src="img/slider_chicken_biryani.jpg" alt="">
                         </div>
                         <div class="text_box d-flex flex-column p-3">
-                            <h6 class="text-capitalize">samsung galaxy</h6>
-                            <span class="mb-3">Price : 990$</span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('10')">add
+                            <h6 class="text-capitalize">chicken biryani</h6>
+                            <span class="mb-3">Price : 200 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('200')">add
                                 to
                                 cart</button>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                <a href="#" class="col-12 col-sm-6 col-md-3 text-decoration-none px-1">
                     <div class="card_box col d-flex flex-column">
                         <div class="img_box overflow-hidden p-3">
-                            <img src="img/ts_products_galleries_3.jpg" alt="">
+                            <img src="img/slider_garlic_chicken_cheese.jpg" alt="">
                         </div>
                         <div class="text_box d-flex flex-column p-3">
-                            <h6 class="text-capitalize">gaming controller</h6>
-                            <span class="mb-3">Price : 99$</span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('20')">add
+                            <h6 class="text-capitalize">garlic chicken</h6>
+                            <span class="mb-3">Price : 270 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('270')">add
                                 to
                                 cart</button>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                <a href="#" class="col-12 col-sm-6 col-md-3 text-decoration-none px-1">
                     <div class="card_box col d-flex flex-column">
                         <div class="img_box overflow-hidden p-3">
-                            <img src="img/airpods_max2.jpg" alt="">
+                            <img src="img/slider_gobi_manchurian.jpg" alt="">
                         </div>
                         <div class="text_box d-flex flex-column p-3">
-                            <h6 class="text-capitalize">apple headphones</h6>
-                            <span class="mb-3">Price : 399$</span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('30')">add
+                            <h6 class="text-capitalize">gobi manchurian</h6>
+                            <span class="mb-3">Price : 150 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('150')">add
                                 to
                                 cart</button>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="col-12 col-sm-6 col-lg-3 text-decoration-none px-1">
+                <a href="#" class="col-12 col-sm-6 col-md-3 text-decoration-none px-1">
                     <div class="card_box col d-flex flex-column">
                         <div class="img_box overflow-hidden p-3">
-                            <img src="img/watch.jpg" alt="">
+                            <img src="img/slider_homemade_pizza.jpg" alt="">
                         </div>
                         <div class="text_box d-flex flex-column p-3">
-                            <h6 class="text-capitalize">apple watch</h6>
-                            <span class="mb-3">Price : 125$</span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('40')">add
+                            <h6 class="text-capitalize">homemade pizza</h6>
+                            <span class="mb-3">Price : 110 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('110')">add
                                 to
                                 cart</button>
                         </div>
@@ -86,8 +86,8 @@
                 </a>
             </div>
             <div class="wishcart col p-3">
-                <p class="text-capitalize mb-2">Item : <span id="count"></span></p>
-                <p class="text-capitalize mb-2">Total : <span id="total"></span></p>
+                <p class="text-capitalize mb-2">Items : <span id="count"></span></p>
+                <p class="text-capitalize mb-2">Total Amount : <span id="total"></span></p>
                 <p class="text-capitalize mb-2">GST : <span id="gst"></span></p>
                 <hr class="hr col-12">
                 <p class="text-capitalize">Gross Amount : - <span id="grossamount"></span></p>
@@ -129,8 +129,8 @@
             count++;
         }
         function onClickBtn(disountbtn) {
-            discountamount = grossamount * (parseFloat(disountbtn) / 100);
-            netamount = grossamount - (grossamount * (disountbtn / 100));
+            discountamount = grossamount * (parseInt(disountbtn) * 0.01);
+            netamount = grossamount - (grossamount * (disountbtn * 0.01));
             document.getElementById("discountamount").innerText = discountamount;
             document.getElementById("netamount").innerText = netamount;
         }
