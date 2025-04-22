@@ -35,7 +35,8 @@
                         </div>
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">chicken biryani</h6>
-                            <span class="mb-3">Price : 200 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <span class="mb-1">Price : 200 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <span class="mb-3">Item : <span id="item1"></span></span>
                             <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('200')">add
                                 to
                                 cart</button>
@@ -54,6 +55,7 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">garlic chicken</h6>
                             <span class="mb-3">Price : 270 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <span class="mb-3">Item : <span id="item2"></span></span>
                             <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('270')">add
                                 to
                                 cart</button>
@@ -72,6 +74,7 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">gobi manchurian</h6>
                             <span class="mb-3">Price : 150 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <span class="mb-3">Item : <span id="item3"></span></span>
                             <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('150')">add
                                 to
                                 cart</button>
@@ -90,6 +93,7 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">homemade pizza</h6>
                             <span class="mb-3">Price : 110 <i class="fa-solid fa-indian-rupee-sign"></i></span>
+                            <span class="mb-3">Item : <span id="item4"></span></span>
                             <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('110')">add
                                 to
                                 cart</button>
@@ -134,6 +138,11 @@
         let grossamount = 0;
         let discountamount = 0;
         let netamount = 0;
+        let item1 = 0;
+        let item2 = 0;
+        let item3 = 0;
+        let item4 = 0;
+
         function addFunc(params) {
             total = parseInt(total) + parseInt(params);
             grossamount = total + (total * 0.18);
@@ -142,6 +151,22 @@
             document.getElementById("gst").innerText = "18%";
             document.getElementById("grossamount").innerText = grossamount;
             items++;
+            if (params == 200) {
+                item1++;
+                document.getElementById("item1").innerText = item1;
+            }
+            else if (params == 270) {
+                item2++;
+                document.getElementById("item2").innerText = item2;
+            }
+            else if (params == 150) {
+                item3++;
+                document.getElementById("item3").innerText = item3;
+            }
+            else if (params == 270) {
+                item4++;
+                document.getElementById("item1").innerText = item4;
+            }
         }
         function onClickBtn(disountbtn) {
             discountamount = grossamount * (parseInt(disountbtn) * 0.01);
@@ -150,15 +175,66 @@
             document.getElementById("netamount").innerText = netamount;
         }
         function removeFunc(params) {
-            let total = document.getElementById("total").innerText;
-            let items = document.getElementById("items").innerText;
-            if (total > 0) {
-                total = parseInt(total) - parseInt(params);
-                document.getElementById("total").innerText = total;
+            if (params == 200) {
+                console.log(params);
+                if (item1 == 0) {
+                    return;
+                }
+                total = document.getElementById("total").innerText;
+                items = document.getElementById("items").innerText;
+                if (item1 > 0) {
+                    item1--;
+                    document.getElementById("item1").innerText = item1;
+                    total = parseInt(total) - parseInt(params);
+                    document.getElementById("total").innerText = total;
+                    items--;
+                    document.getElementById("items").innerText = items;
+                }
             }
-            if (items > 0) {
-                items--;
-                document.getElementById("items").innerText = items;
+            if (params == 270) {
+                if (item2 == 0) {
+                    return;
+                }
+                total = document.getElementById("total").innerText;
+                items = document.getElementById("items").innerText;
+                if (item2 > 0) {
+                    item2--;
+                    document.getElementById("item2").innerText = item2;
+                    total = parseInt(total) - parseInt(params);
+                    document.getElementById("total").innerText = total;
+                    items--;
+                    document.getElementById("items").innerText = items;
+                }
+            }
+            if (params == 200) {
+                if (item3 == 0) {
+                    return;
+                }
+                total = document.getElementById("total").innerText;
+                items = document.getElementById("items").innerText;
+                if (item3 > 0) {
+                    item3--;
+                    document.getElementById("item3").innerText = item3;
+                    total = parseInt(total) - parseInt(params);
+                    document.getElementById("total").innerText = total;
+                    items--;
+                    document.getElementById("items").innerText = items;
+                }
+            }
+            if (params == 200) {
+                if (item4 == 0) {
+                    return;
+                }
+                total = document.getElementById("total").innerText;
+                items = document.getElementById("items").innerText;
+                if (item4 > 0) {
+                    item4--;
+                    document.getElementById("item4").innerText = item4;
+                    total = parseInt(total) - parseInt(params);
+                    document.getElementById("total").innerText = total;
+                    items--;
+                    document.getElementById("items").innerText = items;
+                }
             }
         }
     </script>
