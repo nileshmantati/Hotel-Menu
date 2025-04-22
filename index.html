@@ -36,7 +36,11 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">chicken biryani</h6>
                             <span class="mb-3">Price : 200 <i class="fa-solid fa-indian-rupee-sign"></i></span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('200')">add
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('200')">add
+                                to
+                                cart</button>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase mt-2"
+                                onclick="removeFunc('200')">remove
                                 to
                                 cart</button>
                         </div>
@@ -50,7 +54,11 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">garlic chicken</h6>
                             <span class="mb-3">Price : 270 <i class="fa-solid fa-indian-rupee-sign"></i></span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('270')">add
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('270')">add
+                                to
+                                cart</button>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase mt-2"
+                                onclick="removeFunc('270')">remove
                                 to
                                 cart</button>
                         </div>
@@ -64,7 +72,11 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">gobi manchurian</h6>
                             <span class="mb-3">Price : 150 <i class="fa-solid fa-indian-rupee-sign"></i></span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('150')">add
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('150')">add
+                                to
+                                cart</button>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase mt-2"
+                                onclick="removeFunc('150')">remove
                                 to
                                 cart</button>
                         </div>
@@ -78,7 +90,11 @@
                         <div class="text_box d-flex flex-column p-3">
                             <h6 class="text-capitalize">homemade pizza</h6>
                             <span class="mb-3">Price : 110 <i class="fa-solid fa-indian-rupee-sign"></i></span>
-                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="onClickFunc('110')">add
+                            <button class="border-0 add rounded-2 py-2 text-uppercase" onclick="addFunc('110')">add
+                                to
+                                cart</button>
+                            <button class="border-0 add rounded-2 py-2 text-uppercase mt-2"
+                                onclick="removeFunc('100')">remove
                                 to
                                 cart</button>
                         </div>
@@ -86,7 +102,7 @@
                 </a>
             </div>
             <div class="wishcart col p-3">
-                <p class="text-capitalize mb-2">Items : <span id="count"></span></p>
+                <p class="text-capitalize mb-2">Items : <span id="items"></span></p>
                 <p class="text-capitalize mb-2">Total Amount : <span id="total"></span></p>
                 <p class="text-capitalize mb-2">GST : <span id="gst"></span></p>
                 <hr class="hr col-12">
@@ -112,27 +128,42 @@
         </div>
     </div>
     <script>
-        let count = 1;
+        let items = 1;
         let total = 0;
         let gst = 18;
         let grossamount = 0;
         let discountamount = 0;
         let netamount = 0;
-        function onClickFunc(params) {
-            let btn = document.getElementById(params);
+        function addFunc(params) {
             total = parseInt(total) + parseInt(params);
             grossamount = total + (total * 0.18);
-            document.getElementById("count").innerText = count;
+            document.getElementById("items").innerText = items;
             document.getElementById("total").innerText = total;
             document.getElementById("gst").innerText = "18%";
             document.getElementById("grossamount").innerText = grossamount;
-            count++;
+            items++;
         }
         function onClickBtn(disountbtn) {
             discountamount = grossamount * (parseInt(disountbtn) * 0.01);
             netamount = grossamount - (grossamount * (disountbtn * 0.01));
             document.getElementById("discountamount").innerText = discountamount;
             document.getElementById("netamount").innerText = netamount;
+        }
+        function removeFunc(params) {
+            let total = document.getElementById("total").innerText;
+            let items = document.getElementById("items").innerText;
+            if (total > 0) {
+                total = parseInt(total) - parseInt(params);
+                document.getElementById("total").innerText = total;
+            }
+            if (items > 0) {
+                items--;
+                document.getElementById("items").innerText = items;
+            }
+
+
+
+
         }
     </script>
     <script src="js/jquery.js"></script>
